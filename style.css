@@ -4,6 +4,9 @@
     box-sizing: border-box;
 }
 
+body{
+    background-color:beige;
+}
 .navbarContrainer {
     display: flex;
     align-items: center;
@@ -96,4 +99,34 @@
     border-radius: 10px;
     font-size: 18px;
     background-color: yellow;
+}
+/* 2nd Container */
+.category{
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+}
+.category .cat{
+    margin: 20px;
+    padding: 10px 20px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 0 5px gray;
+}
+
+/*3rd Container */
+
+.features{
+    margin: 20px;
+    background-color: white;
+    box-shadow: 0 0 5px gray;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 20px;
+    font-size: 20px;
+}
+.features aside:hover,.cat:hover{
+    transform: scale(1.1);
 }
