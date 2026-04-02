@@ -96,3 +96,5 @@ let allProducts = [
     }
 ]
 console.log(allProducts)
+
+
