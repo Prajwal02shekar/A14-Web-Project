@@ -98,3 +98,51 @@ let allProducts = [
 console.log(allProducts)
 
 
+function displayProducts(listOfProducts) {
+    let productContainer = document.getElementById('product-container')
+    console.log(productContainer)
+
+    if (listOfProducts.length === 0) {
+        productContainer.innerHTML = `<h2>No products found</h2>`
+    }
+    productContainer.innerHTML = listOfProducts.map((prodoct) => `
+    <div class="product-card">
+            <img src="${prodoct.productImage}" alt="">
+            <h2>${prodoct.productName}</h2>
+            <p>₹ ${prodoct.productPrice}</p>
+            <button onclick="addToCart(${prodoct.id})">Add to Cart🛒</button>
+
+            <button>Add to Wishlist❤️</button>
+        </div>
+    `).join('')
+}
+displayProducts(allProducts)
+
+
+function searchFilter() {
+    let text = document.getElementById('search').value.toLowerCase()
+    console.log(text)
+
+    let filterData = allProducts.filter((p) => p.productName.toLowerCase().includes(text))
+    displayProducts(filterData)
+}
+
+function searchCategory(cat) {
+    if (cat === "all") {
+        displayProducts(allProducts)
+    } else {
+        let filterData = allProducts.filter((p) => p.category === cat)
+        displayProducts(filterData)
+    }
+}
+
+function addToCart(id){
+    let cart=JSON.parse(localStorage.getItem('cart'))||[];
+    let product=allProducts.find((p)=>p.id===id)
+    cart.push(product)
+
+    localStorage.setItem('cart',JSON.stringify(cart))
+
+    alert(`${product.productName} added to cart`)
+}
+
