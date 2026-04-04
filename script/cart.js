@@ -1,3 +1,4 @@
+
 let ProfileImage = document.getElementById('ProfileImage')
 console.log(ProfileImage)
 
@@ -44,5 +45,24 @@ function removeItem(id) {
     cart.splice(id,1)
     localStorage.setItem('cart', JSON.stringify(cart))
     displayCartItems()
+
+}
+function clearCart(){
+    let res=confirm("Are you sure you want to remove all items form the cart??")
+    if(res){
+        localStorage.setItem('cart',JSON.stringify([]))
+        displayCartItems()
+
+        window.location.href='../HomePage.html'
+    }
+}
+
+
+function checkout(){
+    alert("Thank you for shopping with us❤️")
+    localStorage.setItem('cart',JSON.stringify([]))
+        displayCartItems()
+
+        window.location.href='../HomePage.html'
 
 }
